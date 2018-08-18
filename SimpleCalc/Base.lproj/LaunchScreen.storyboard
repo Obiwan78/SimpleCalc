@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qKx-st-IcP">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="digital-7.ttf">
+            <string>Digital-7</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="giw-8u-UTO">
+            <objects>
+                <viewController id="qKx-st-IcP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o1n-KT-Cle">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEt-qx-Kf3">
+                                <rect key="frame" x="86" y="229.5" width="149.5" height="109.5"/>
+                                <color key="backgroundColor" red="0.34178656340000002" green="0.4194712639" blue="0.50965237620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Simple
+Calc</string>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
+                                <color key="textColor" red="0.78413242100000002" green="0.92584711310000001" blue="0.62773436309999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alban BERNARD - 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="va1-OH-s5r">
+                                <rect key="frame" x="101" y="539" width="118.5" height="13"/>
+                                <color key="backgroundColor" red="0.34178656340000002" green="0.4194712639" blue="0.50965237620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="14"/>
+                                <color key="textColor" red="0.78413242100000002" green="0.92584711310000001" blue="0.62773436309999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.34178656340000002" green="0.4194712639" blue="0.50965237620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GZ7-dy-MVI" firstAttribute="bottom" secondItem="va1-OH-s5r" secondAttribute="bottom" constant="16" id="0ba-YK-sIi"/>
+                            <constraint firstItem="va1-OH-s5r" firstAttribute="centerX" secondItem="o1n-KT-Cle" secondAttribute="centerX" id="DDJ-4e-Khu"/>
+                            <constraint firstItem="BEt-qx-Kf3" firstAttribute="centerX" secondItem="o1n-KT-Cle" secondAttribute="centerX" id="gPl-v9-ZA1"/>
+                            <constraint firstItem="BEt-qx-Kf3" firstAttribute="centerY" secondItem="o1n-KT-Cle" secondAttribute="centerY" id="vUX-r4-FrH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GZ7-dy-MVI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UyH-u3-reE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704.79999999999995" y="372.86356821589209"/>
+        </scene>
+    </scenes>
+</document>
