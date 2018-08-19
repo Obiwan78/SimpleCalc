@@ -32,14 +32,21 @@ class ViewController: UIViewController {
     var _percentageResult: Double = 0
 
 
-    @IBOutlet weak var ui_numberLabel: UILabel! = nil
-//    @IBOutlet weak var ui_eraseButton: UIButton!
+    @IBOutlet weak var ui_topLineLabel: UILabel! = nil
+    @IBOutlet weak var ui_bottomLineLabel: UILabel! = nil
 
     //-------------------------------------------------
     // View Life Cycle
     //-------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        ui_topLineLabel.numberOfLines = 1
+//        ui_topLineLabel.textAlignment = .left
+//        ui_topLineLabel.font = UIFont(name: "digital-7", size: 25)
+        
+//        ui_bottomLineLabel.numberOfLines = 1
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -48,6 +55,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Segue-Infos" {
+            print("on passe à l'écran info, envoi email")
+        }
+    }
     
     //-------------------------------------------------
     // Méthodes
@@ -55,15 +67,15 @@ class ViewController: UIViewController {
     
     @IBAction func digitButtonTouchedUpInside(_ sender: UIButton) {
         
-        if ui_numberLabel.text == "+" || ui_numberLabel.text == "-" || ui_numberLabel.text == "*" || ui_numberLabel.text == "/" || ui_numberLabel.text == "√" {
-            ui_numberLabel.text = ""
+        if ui_topLineLabel.text == "+" || ui_topLineLabel.text == "-" || ui_topLineLabel.text == "*" || ui_topLineLabel.text == "/" || ui_topLineLabel.text == "√" {
+            ui_topLineLabel.text = ""
             _currentNumber = 0
-        } else if ui_numberLabel.text == "Enter a number before" || ui_numberLabel.text == "Divide by 0 is impossible" {
-            ui_numberLabel.text = ""
+        } else if ui_topLineLabel.text == "Enter a number before" || ui_topLineLabel.text == "Divide by 0 is impossible" {
+            ui_topLineLabel.text = ""
         }
         
-        ui_numberLabel.text = ui_numberLabel.text! + String(sender.tag)
-        _currentNumber = Double(ui_numberLabel.text!)!
+        ui_topLineLabel.text = ui_topLineLabel.text! + String(sender.tag)
+        _currentNumber = Double(ui_topLineLabel.text!)!
         print("_currentNumber = \(_currentNumber)")
         
         //        if _NumToDecimal == true {
@@ -84,41 +96,41 @@ class ViewController: UIViewController {
     
     @IBAction func numberDecimal(_ sender: UIButton) {
 //        _NumToDecimal = true
-        ui_numberLabel.text = String(ui_numberLabel.text! + ".")
-        _currentNumber = Double(ui_numberLabel.text!)!
+        ui_topLineLabel.text = String(ui_topLineLabel.text! + ".")
+        _currentNumber = Double(ui_topLineLabel.text!)!
         // _numdecim = _currentNumber
         //ui_currentNumberLabel.text = “(_numdecim)”
     }
     
     
     @IBAction func square(_ sender: UIButton) {
-        if ui_numberLabel.text == "" {
-            ui_numberLabel.text = "Enter a number before"
+        if ui_topLineLabel.text == "" {
+            ui_topLineLabel.text = "Enter a number before"
         } else {
             //          if _shouldResetCurrentNumber == true {
             //             _currentNumber = _previousNumber
             //          }
             //          _shouldResetCurrentNumber = false
-            ui_numberLabel.text = String(_currentNumber * _currentNumber)
+            ui_topLineLabel.text = String(_currentNumber * _currentNumber)
             _previousNumber = _currentNumber
-            _currentNumber = Double(ui_numberLabel.text!)!
-            print("SQUARE : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_numberLabel.text!))")
+            _currentNumber = Double(ui_topLineLabel.text!)!
+            print("SQUARE : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_topLineLabel.text!))")
         }
     }
     
     
     @IBAction func squareRoot(_ sender: UIButton) {
-        if ui_numberLabel.text == "" {
-            ui_numberLabel.text = "Enter a number before"
+        if ui_topLineLabel.text == "" {
+            ui_topLineLabel.text = "Enter a number before"
         } else {
             //          if _shouldResetCurrentNumber == true {
             //             _currentNumber = _previousNumber
             //          }
             //          _shouldResetCurrentNumber = false
-            ui_numberLabel.text = String(sqrt(_currentNumber))
+            ui_topLineLabel.text = String(sqrt(_currentNumber))
             _previousNumber = _currentNumber
-            _currentNumber = Double(ui_numberLabel.text!)!
-            print("SQUARE : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_numberLabel.text!))")
+            _currentNumber = Double(ui_topLineLabel.text!)!
+            print("SQUARE : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_topLineLabel.text!))")
         }
     }
     
@@ -127,7 +139,7 @@ class ViewController: UIViewController {
 //        if _shouldResetCurrentNumber == false {
 //            performWaitingCalculous()
 //        }
-        ui_numberLabel.text = "/"
+        ui_topLineLabel.text = "/"
         _operationType = "/"
         _previousNumber = _currentNumber
         _currentNumber = 0
@@ -138,10 +150,10 @@ class ViewController: UIViewController {
 //        if _shouldResetCurrentNumber == false {
 //            performWaitingCalculous()
 //        }
-        if ui_numberLabel.text == "" {
-            ui_numberLabel.text = "Enter a number before"
+        if ui_topLineLabel.text == "" {
+            ui_topLineLabel.text = "Enter a number before"
         }
-        ui_numberLabel.text = "*"
+        ui_topLineLabel.text = "*"
         _operationType = "*"
         _previousNumber = _currentNumber
         _currentNumber = 0
@@ -152,7 +164,7 @@ class ViewController: UIViewController {
 //        if _shouldResetCurrentNumber == false {
 //            performWaitingCalculous()
 //        }
-        ui_numberLabel.text = "-"
+        ui_topLineLabel.text = "-"
         _operationType = "-"
         _previousNumber = _currentNumber
         _currentNumber = 0
@@ -163,7 +175,7 @@ class ViewController: UIViewController {
 //        if _shouldResetCurrentNumber == false {
 //            performWaitingCalculous()
 //        }
-        ui_numberLabel.text = "+"
+        ui_topLineLabel.text = "+"
         _operationType = "+"
         _previousNumber = _currentNumber
         _currentNumber = 0
@@ -186,23 +198,23 @@ class ViewController: UIViewController {
         //        totalPercentageApply = _previousNumber * _percentageResult // si _previousNumber vaut 50 alors totalPercentageApply vaut 10
         switch _operationType {
         case "-":
-            ui_numberLabel.text = String(_previousNumber - _previousNumber * _percentageResult);
+            ui_topLineLabel.text = String(_previousNumber - _previousNumber * _percentageResult);
         case "+" :
-            ui_numberLabel.text = String(_previousNumber + _previousNumber * _percentageResult);
+            ui_topLineLabel.text = String(_previousNumber + _previousNumber * _percentageResult);
         case "*" :
-            ui_numberLabel.text = String(_previousNumber * _percentageResult);
+            ui_topLineLabel.text = String(_previousNumber * _percentageResult);
         case "/" :
             if _currentNumber != 0 {
-                ui_numberLabel.text = String(_previousNumber / _percentageResult)
+                ui_topLineLabel.text = String(_previousNumber / _percentageResult)
             } else {
-                ui_numberLabel.text = "Divide by 0 is impossible"
+                ui_topLineLabel.text = "Divide by 0 is impossible"
             };
         default :
-            ui_numberLabel.text = String(_currentNumber/100)
+            ui_topLineLabel.text = String(_currentNumber/100)
             _percentageResult = _currentNumber / 100 ;
         }
         print("RESULT : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber), percentResult = \(_percentageResult)")
-        _currentNumber = Double(ui_numberLabel.text!)!
+        _currentNumber = Double(ui_topLineLabel.text!)!
         print(_currentNumber)
     }
     
@@ -210,15 +222,15 @@ class ViewController: UIViewController {
     @IBAction func changeSignButton(_ sender: UIButton) {
         //        if _shouldResetCurrentNumber == true {
         //            _currentNumber = _previousNumber}
-        ui_numberLabel.text = String(Double(ui_numberLabel.text!)! * -1)
-        _currentNumber = Double(ui_numberLabel.text!)!
-        print("ChangeSign : _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_numberLabel.text!))")
+        ui_topLineLabel.text = String(Double(ui_topLineLabel.text!)! * -1)
+        _currentNumber = Double(ui_topLineLabel.text!)!
+        print("ChangeSign : _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_topLineLabel.text!))")
         //        _shouldResetCurrentNumber = false
     }
     
     
     @IBAction func resetAllValueButton(_ sender: UIButton) { // All Clear
-        ui_numberLabel.text = ""
+        ui_topLineLabel.text = ""
         _previousNumber = 0
         _currentNumber = 0
         _operationType = " "
@@ -229,7 +241,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func ResetCurrentNumber(_ sender: UIButton) {
-        ui_numberLabel.text = ""
+        ui_topLineLabel.text = ""
         //        _previousNumber = _currentNumber
         _currentNumber = 0
         resetdecimal()
@@ -244,10 +256,12 @@ class ViewController: UIViewController {
         //        print(StringNumber)
         //        _currentNumber = Double(StringNumber)!
         //        updateDisplay()
-        if (ui_numberLabel.text?.count)! >= 2 {
-            ui_numberLabel.text?.removeLast()
-            _currentNumber = Double(ui_numberLabel.text!)!
-            print("ERASE LAST DIGIT : _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_numberLabel.text!))")
+        if ui_topLineLabel.text == "Divide by 0 is impossible" || ui_topLineLabel.text == "Error" || ui_topLineLabel.text == "Enter a number before" || ui_topLineLabel.text == "+" || ui_topLineLabel.text == "-" || ui_topLineLabel.text == "*" || ui_topLineLabel.text == "/" || ui_topLineLabel.text == "^" || ui_topLineLabel.text == "" {
+            ui_topLineLabel.text = ""
+        } else {
+            ui_topLineLabel.text?.removeLast()
+            _currentNumber = Double(ui_topLineLabel.text!)!
+            print("ERASE LAST DIGIT : _currentNumber = \(_currentNumber) / ui_numberLabel = \(String(describing: ui_topLineLabel.text!))")
         }
     }
     
@@ -267,21 +281,24 @@ class ViewController: UIViewController {
     func performWaitingCalculous() {
             switch _operationType {
             case "+":
-                ui_numberLabel.text = String(_previousNumber + _currentNumber)
+                ui_topLineLabel.text = String(_previousNumber + _currentNumber)
+                _currentNumber = Double(ui_topLineLabel.text!)!
             case "-" :
-                ui_numberLabel.text = String(_previousNumber - _currentNumber)
+                ui_topLineLabel.text = String(_previousNumber - _currentNumber)
+                _currentNumber = Double(ui_topLineLabel.text!)!
             case "*" :
-                ui_numberLabel.text = String(_previousNumber * _currentNumber)
+                ui_topLineLabel.text = String(_previousNumber * _currentNumber)
+                _currentNumber = Double(ui_topLineLabel.text!)!
             case "/" :
                 if _currentNumber != 0 {
-                    ui_numberLabel.text = String(_previousNumber / _currentNumber)
+                    ui_topLineLabel.text = String(_previousNumber / _currentNumber)
+                    _currentNumber = Double(ui_topLineLabel.text!)!
                 } else {
-                    ui_numberLabel.text = "Divide by 0 is impossible"
+                    ui_topLineLabel.text = "Divide by 0 is impossible"
                 };
-            default : ui_numberLabel.text = "Error" ;
+            default : ui_topLineLabel.text = "Error" ;
             }
-            
-        _currentNumber = Double(ui_numberLabel.text!)!
+        
 //      _shouldResetCurrentNumber = true
         print("RESULTAT : _previousNumber = \(_previousNumber) ET _currentNumber = \(_currentNumber)")
     }
@@ -292,9 +309,25 @@ class ViewController: UIViewController {
         
     }
     
-//    @objc func displayButton() {
-//
-//    }
+    func testInternetAndWifiConnexion() {
+        // check internet connexion
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alertController = UIAlertController.init(title: "Aucune Connexion Internet", message: "Veuillez vérifier votre connexion (wifi ou données mobiles).", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_ ) in print("arreter le téléchargement car il n'y a pas de données mobile ou wifi activés")} ))
+            alertController.addAction(UIAlertAction(title: "Activer le wifi", style: .default, handler: { (_ ) in
+                print("Activation Wifi")
+            }))
+            alertController.addAction(UIAlertAction(title: "Activer les données mobiles", style: .default, handler: { (_ ) in
+                print("Activation Données Mobiles")
+            }))
+            present(alertController, animated: true, completion: nil)
+        }
+        return
+    }
+
 
 }
 
