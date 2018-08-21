@@ -19,7 +19,7 @@ class formatCalcButton: UIButton {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5 //(button.frame.width / 2)
         button.backgroundColor = UIColor.red
-        
+        return
     }
     
 }
