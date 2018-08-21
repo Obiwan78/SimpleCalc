@@ -280,20 +280,24 @@ class ViewController: UIViewController {
     
     
     @IBAction func eraseLastDigit(_ sender: UIButton) {
-        //        var StringNumber: String = String(_currentNumber)
-        //        print(StringNumber)
-        //        StringNumber.removeLast()
-        //        print(StringNumber)
         //        _currentNumber = Double(StringNumber)!
         //        updateDisplay()
         if ui_topLineLabel.text == "Division par 0 impossible" || ui_topLineLabel.text == "Erreur" || ui_topLineLabel.text == "Entrer un nombre d'abord" || ui_topLineLabel.text == "+" || ui_topLineLabel.text == "-" || ui_topLineLabel.text == "*" || ui_topLineLabel.text == "/" || ui_topLineLabel.text == "^" || ui_topLineLabel.text == "" {
             ui_topLineLabel.text = ""
-        } else if ui_topLineLabel.text?.count != 1 || Double(ui_topLineLabel.text!)! < 0 && (ui_topLineLabel.text?.count)! >= 2 {
+        } else if (ui_topLineLabel.text?.count)! <= 2
+        {
+            if (ui_topLineLabel.text?.contains("-"))!
+            {
+                ui_topLineLabel.text = ""
+                _currentNumber = 0
+                return
+            }
+        }
             ui_topLineLabel.text?.removeLast()
             _currentNumber = Double(ui_topLineLabel.text!)!
             print("ERASE LAST DIGIT : _currentNumber = \(_currentNumber) / ui_topLineLabel = \(String(describing: ui_topLineLabel.text!))")
             _decimalNumber = true
-        }
+        
     }
     
     
