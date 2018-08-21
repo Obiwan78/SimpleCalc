@@ -298,7 +298,7 @@
                                         <rect key="frame" x="0.0" y="461" width="382" height="87"/>
                                         <subviews>
                                             <button verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8w-db-BaW">
-                                                <rect key="frame" x="0.0" y="0.0" width="188.66666666666666" height="87"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="189" height="87"/>
                                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
                                                 <color key="tintColor" red="1" green="0.25522911329999998" blue="0.30426560870000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -310,7 +310,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-yh-3wO">
-                                                <rect key="frame" x="193.66666666666666" y="0.0" width="91.666666666666657" height="87"/>
+                                                <rect key="frame" x="194" y="0.0" width="91.333333333333314" height="87"/>
                                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
                                                 <color key="tintColor" red="1" green="0.25522911329999998" blue="0.30426560870000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -397,7 +397,7 @@
 Nous souhaitons également recueillir vos commentaires afin d'améliorer cette calculatrice.
 
 Pour ce faire :</string>
-                                <fontDescription key="fontDescription" name="Balham" family="Balham" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Balham" family="Balham" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
