@@ -13,9 +13,12 @@ Calculatrice, modifié me 16/08/2018 suite remarques Espérance
 */
 
 import UIKit
+import Foundation
+import StoreKit
 
 class ViewController: UIViewController {
     
+    var numberOfOpenApp: Int = 1
 //    var _shouldResetCurrentNumber = true
     var _decimalNumber = false
     var _operationType : Character = " "
@@ -35,13 +38,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var ui_topLineLabel: UILabel! = nil
 //    @IBOutlet weak var ui_bottomLineLabel: UILabel! = nil
 
+    
     //-------------------------------------------------
     // View Life Cycle
     //-------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        ui_topLineLabel.numberOfLines = 1
+        print("viewDidLoad : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
+        
+        // USER DEFAULT pour SKStoreReviewController
+        UserDefaults.standard.set(numberOfOpenApp, forKey: "NUMBER")
+//        let loadedQuantityOfOpenedApp = UserDefaults.standard.integer(forKey: "NUMBER")
+
+        
+        //        ui_topLineLabel.numberOfLines = 1
 //        ui_topLineLabel.textAlignment = .left
 //        ui_topLineLabel.font = UIFont(name: "digital-7", size: 25)
         
@@ -98,11 +109,15 @@ class ViewController: UIViewController {
         if _decimalNumber == true {
             return
         } else {
+            if (ui_topLineLabel.text?.contains("."))! {
+                return
+            } else {
             ui_topLineLabel.text = String(ui_topLineLabel.text! + ".")
             _currentNumber = Double(ui_topLineLabel.text!)!
             // _numdecim = _currentNumber
             //ui_currentNumberLabel.text = “(_numdecim)”
             _decimalNumber = true
+            }
         }
     }
     
@@ -152,25 +167,16 @@ class ViewController: UIViewController {
 //        if _shouldResetCurrentNumber == false {
 //            performWaitingCalculous()
 //        }
-//        if _previousNumber != 0 && _operationType == "/" {
-//            ui_topLineLabel.text = "/"
-//            _operationType = "/"
-//            performWaitingCalculous()
-//        } else {
-
         ui_topLineLabel.text = "/"
         _operationType = "/"
-//        if _previousNumber != 0 {
-//            _previousNumber = _previousNumber / _currentNumber
-//            _currentNumber = _previousNumber
-//            print("RESULT / : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
-//        } else {
-            _previousNumber = _currentNumber
-            _currentNumber = 0
-//        }
-
+        if _previousNumber != 0 {
+            _previousNumber = _previousNumber / _currentNumber
+        } else {
+        _previousNumber = _currentNumber
+        }
+        _currentNumber = 0
         resetdecim()
-//        }
+        print("DivisionBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
 
     @IBAction func multiplyButton(_ sender: UIButton) {
@@ -179,10 +185,10 @@ class ViewController: UIViewController {
 //        }
         ui_topLineLabel.text = "*"
         _operationType = "*"
-        _previousNumber = _currentNumber
+        _previousNumber = _previousNumber * _currentNumber
         _currentNumber = 0
         resetdecim()
-//        }
+        print("MultiplyBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
 
     @IBAction func substractButton(_ sender: UIButton) {
@@ -191,9 +197,10 @@ class ViewController: UIViewController {
 //        }
         ui_topLineLabel.text = "-"
         _operationType = "-"
-        _previousNumber = _currentNumber
+        _previousNumber = _previousNumber - _currentNumber
         _currentNumber = 0
         resetdecim()
+        print("SubstractBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
     
     @IBAction func additionButton(_ sender: UIButton) {
@@ -202,9 +209,10 @@ class ViewController: UIViewController {
 //        }
         ui_topLineLabel.text = "+"
         _operationType = "+"
-        _previousNumber = _currentNumber
+        _previousNumber = _previousNumber + _currentNumber
         _currentNumber = 0
         resetdecim()
+        print("AdditionBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
     
     @IBAction func resultButton(_ sender: UIButton) {
@@ -284,20 +292,25 @@ class ViewController: UIViewController {
         //        updateDisplay()
         if ui_topLineLabel.text == "Division par 0 impossible" || ui_topLineLabel.text == "Erreur" || ui_topLineLabel.text == "Entrer un nombre d'abord" || ui_topLineLabel.text == "+" || ui_topLineLabel.text == "-" || ui_topLineLabel.text == "*" || ui_topLineLabel.text == "/" || ui_topLineLabel.text == "^" || ui_topLineLabel.text == "" {
             ui_topLineLabel.text = ""
-        } else if (ui_topLineLabel.text?.count)! <= 2
-        {
-            if (ui_topLineLabel.text?.contains("-"))!
-            {
-                ui_topLineLabel.text = ""
-                _currentNumber = 0
-                return
-            }
+            return
         }
-            ui_topLineLabel.text?.removeLast()
-            _currentNumber = Double(ui_topLineLabel.text!)!
-            print("ERASE LAST DIGIT : _currentNumber = \(_currentNumber) / ui_topLineLabel = \(String(describing: ui_topLineLabel.text!))")
-            _decimalNumber = true
         
+        if _currentNumber.isZero == true {
+            ui_topLineLabel.text = ""
+            return
+        }
+
+        
+        if (ui_topLineLabel.text?.count)! <= 2 && (ui_topLineLabel.text?.contains("-"))! {
+            ui_topLineLabel.text = ""
+            _currentNumber = 0
+            return
+        }
+
+        ui_topLineLabel.text?.removeLast()
+        _currentNumber = Double(ui_topLineLabel.text!)!
+        print("ERASE LAST DIGIT : _currentNumber = \(_currentNumber) / ui_topLineLabel = \(String(describing: ui_topLineLabel.text!))")
+        _decimalNumber = true
     }
     
     
@@ -346,7 +359,8 @@ class ViewController: UIViewController {
 
     func updateDisplay() {
         ui_topLineLabel.text = "\(_currentNumber)"
-        
+//        if ui_topLineLabel.text?.contains(".0") == true {
+//      }
     }
     
     func testInternetAndWifiConnexion() {
