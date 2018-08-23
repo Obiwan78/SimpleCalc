@@ -34,7 +34,7 @@ class moreApps: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     
-    func showAlertControllerMoreApps() {
+    public func showAlertControllerMoreApps() {
         alertController.addAction(UIAlertAction( title: "Sur le site internet",
                                                 style: .default,
                                                 handler: {

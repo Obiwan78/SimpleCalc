@@ -223,7 +223,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CmT-qU-R6n"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-Jx-dOD">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-Jx-dOD" customClass="formatCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="92.666666666666671" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -288,7 +288,7 @@
                                         <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
                                         <color key="tintColor" red="1" green="0.25522911329999998" blue="0.30426560870000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="&gt;">
+                                        <state key="normal" title="&lt;">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2073,7 +2073,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sX-zH-A4E">
                                 <rect key="frame" x="16" y="80" width="382" height="542"/>
-                                <string key="text">Nous sommes très heureux de savoir que vous avez télécharger notre application SIMPLE CALC et nous vous en remercions chaleureusement.
+                                <string key="text">Nous sommes très heureux de savoir que vous avez téléchargé notre application SIMPLE CALC et nous vous en remerçions chaleureusement.
 
 Nous souhaitons également recueillir vos commentaires afin d'améliorer cette calculatrice.
 

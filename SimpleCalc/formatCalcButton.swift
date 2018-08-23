@@ -10,16 +10,24 @@ import UIKit
 
 class formatCalcButton: UIButton {
 
-    
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-        let button: UIButton = UIButton()
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5 //(button.frame.width / 2)
-        button.backgroundColor = UIColor.red
-        return
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.customInit()
     }
-    
+
+    override init(frame: CGRect) {
+        super .init(frame: frame)
+        self.customInit()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+
+    private func customInit() {
+//        self.layer.borderWidth = 0
+//        self.layer.cornerRadius = 10 //(button.frame.width / 2)
+//        self.backgroundColor = UIColor.red
+
+    }
 }

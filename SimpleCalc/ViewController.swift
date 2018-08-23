@@ -18,8 +18,8 @@ import StoreKit
 
 class ViewController: UIViewController {
     
-    
-    var quantityOfResultButtonIsTouchedInSimpleCalc = UserDefaults.standard.integer(forKey: "QUANTITYRESULTBUTTONTOUCHED")
+    static let KEY_QUANTITY_RESULT_BUTTON_TOUCHED : String = "QUANTITYRESULTBUTTONTOUCHED"
+    var quantityOfResultButtonIsTouchedInSimpleCalc = UserDefaults.standard.integer(forKey: KEY_QUANTITY_RESULT_BUTTON_TOUCHED)
     var _quantityOfResultButtonIsTouched: Int = 0
     let _moduloRequestReview: Int = 50 // Default = 50 x la touche "=". valeur à modifier pour test (entre 2 et 5)
     
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        moreAppsABERNARD(presentedViewController: self)
+//        moreAppsABERNARD(presentedViewController: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -198,7 +198,8 @@ class ViewController: UIViewController {
             requestReview()
         }
         quantityOfResultButtonIsTouchedInSimpleCalc = _quantityOfResultButtonIsTouched
-        UserDefaults.standard.set(_quantityOfResultButtonIsTouched , forKey: "QUANTITYRESULTBUTTONTOUCHED")
+        UserDefaults.standard.set(_quantityOfResultButtonIsTouched , forKey: ViewController.KEY_QUANTITY_RESULT_BUTTON_TOUCHED)
+//        UserDefaults.synchronize(<#T##UserDefaults#>)
         print("Lauched SIMPLE CALC : quantityOfResultButtonIsTouched = \(_quantityOfResultButtonIsTouched)")
         print("quantityOfResultButtonIsTouchedInSimpleCalc = \(quantityOfResultButtonIsTouchedInSimpleCalc)")
         performWaitingCalculous()
@@ -346,6 +347,7 @@ class ViewController: UIViewController {
         } else {
 //            moreApps.showAlertControllerMoreApps()
             moreAppsABERNARD(presentedViewController: self)
+//            moreApps.showAlertControllerMoreApps()
         }
     }
     
