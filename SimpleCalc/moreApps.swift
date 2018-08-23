@@ -39,14 +39,13 @@ class moreApps: UIViewController, MFMailComposeViewControllerDelegate {
                                                 style: .default,
                                                 handler: {
                                                 (action:UIAlertAction!) -> Void in
-                                                UIApplication.shared.open(URL(fileURLWithPath: "https://albanbernard.fr/ios-apps"), options: [:], completionHandler: nil)
-                                                //                                                    UIApplication.shared.open(URL(fileURLWithPath: "htpps://albanbernard.fr/ios-apps"))
+                                                UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: [:], completionHandler: nil)
     }))
     
     alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
                                             style: .default,
                                             handler: { (_ ) in
-                                                UIApplication.shared.open(URL(fileURLWithPath: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784"))
+                                                UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: [:], completionHandler: nil)
     }))
     
     alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))

@@ -40,21 +40,23 @@ class ViewController: UIViewController {
 //        moreApps.showAlertControllerMoreApps()
 //        moreAppsABERNARD()
         
-        // USER DEFAULT pour SKStoreReviewController
+// ---- USER DEFAULT pour SKStoreReviewController
         _quantityOfResultButtonIsTouched = quantityOfResultButtonIsTouchedInSimpleCalc
+//        moreAppsABERNARD(presentedViewController: self)
+// ---- Voir resultButton et func requestReview()
 
-        // Voir resultButton et func requestReview()
-        
-        
-        //-------------------------------------------------
-        // infos
-        //-------------------------------------------------
-        
         print("viewDidLoad : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
 //        ui_topLineLabel.textAlignment = .left
 //        ui_topLineLabel.font = UIFont(name: "digital-7", size: 25)
 //        ui_bottomLineLabel.numberOfLines = 1
 
+//        override func viewDidAppear(_ animated: Bool) {
+//            updateDisplay()
+//    }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        moreAppsABERNARD(presentedViewController: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -343,31 +345,30 @@ class ViewController: UIViewController {
             SKStoreReviewController.requestReview()
         } else {
 //            moreApps.showAlertControllerMoreApps()
-            moreAppsABERNARD()
+            moreAppsABERNARD(presentedViewController: self)
         }
     }
     
     
-    func moreAppsABERNARD () {
+    func moreAppsABERNARD (presentedViewController : UIViewController!) {
         let alertController = UIAlertController(title: "Voir nos applications", message: "Nous vous proposons de regarder nos autres applications sur l'AppStore ou sur notre site internet", preferredStyle: .actionSheet)
 
         alertController.addAction(UIAlertAction( title: "Sur le site internet",
                                                  style: .default,
                                                  handler: {
                                                     (action:UIAlertAction!) -> Void in
-                                                    UIApplication.shared.open(URL(fileURLWithPath: "https://albanbernard.fr/ios-apps"), options: [:], completionHandler: nil)
-//                                                    UIApplication.shared.open(URL(fileURLWithPath: "htpps://albanbernard.fr/ios-apps"))
+                                                    UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: [:], completionHandler: nil)
                                                     }))
 
         alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
                                                 style: .default,
                                                 handler: { (_ ) in
-                                                    UIApplication.shared.open(URL(fileURLWithPath: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784"))
+                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: [:], completionHandler: nil)
                                                     }))
 
         alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))
 
-        presentedViewController?.present(alertController, animated: true, completion: nil)
+        presentedViewController.present(alertController, animated: true, completion: nil)
 
     }
 

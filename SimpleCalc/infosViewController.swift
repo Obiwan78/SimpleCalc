@@ -68,24 +68,23 @@ class infosViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     @IBAction func moreAppsButton(_ sender: Any) {
-        moreAppsABERNARD()
+        moreAppsABERNARD (presentedViewController: self)
     }
     
-    func moreAppsABERNARD () {
+    func moreAppsABERNARD (presentedViewController : UIViewController!) {
         let alertController = UIAlertController(title: "Voir nos applications", message: "Nous vous proposons de regarder nos autres applications sur l'AppStore ou sur notre site internet", preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction( title: "Sur le site internet",
                                                  style: .default,
                                                  handler: {
                                                     (action:UIAlertAction!) -> Void in
-                                                    UIApplication.shared.open(URL(fileURLWithPath: "https://albanbernard.fr/ios-apps"), options: [:], completionHandler: nil)
-                                                    //                                                    UIApplication.shared.open(URL(fileURLWithPath: "htpps://albanbernard.fr/ios-apps"))
+                                                    UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: [:], completionHandler: nil)
         }))
         
         alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
                                                 style: .default,
                                                 handler: { (_ ) in
-                                                    UIApplication.shared.open(URL(fileURLWithPath: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784"))
+                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: [:], completionHandler: nil)
         }))
         
         alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))
