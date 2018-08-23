@@ -18,26 +18,18 @@ import StoreKit
 
 class ViewController: UIViewController {
     
-    var numberOfOpenApp: Int = 1
-//    var _shouldResetCurrentNumber = true
+    
+    var quantityOfResultButtonIsTouchedInSimpleCalc = UserDefaults.standard.integer(forKey: "QUANTITYRESULTBUTTONTOUCHED")
+    var _quantityOfResultButtonIsTouched: Int = 0
+    let _moduloRequestReview: Int = 50 // Default = 50 x la touche "=". valeur à modifier pour test (entre 2 et 5)
+    
     var _decimalNumber = false
     var _operationType : Character = " "
-//    var _intergerPart : Int = 0
-//    var _decim : Double = 1
-//    var _numdecim : Double = 0
     var _currentNumber : Double = 0
-    //    {
-    //        didSet {
-    //            ui_topLineLabel.text = "\(_currentNumber)"
-    //        }
-    //    }
     var _previousNumber : Double = 0
     var _percentageResult: Double = 0
 
-
     @IBOutlet weak var ui_topLineLabel: UILabel! = nil
-//    @IBOutlet weak var ui_bottomLineLabel: UILabel! = nil
-
     
     //-------------------------------------------------
     // View Life Cycle
@@ -45,20 +37,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("viewDidLoad : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
+//        moreApps.showAlertControllerMoreApps()
+//        moreAppsABERNARD()
         
         // USER DEFAULT pour SKStoreReviewController
-        UserDefaults.standard.set(numberOfOpenApp, forKey: "NUMBER")
-//        let loadedQuantityOfOpenedApp = UserDefaults.standard.integer(forKey: "NUMBER")
+        _quantityOfResultButtonIsTouched = quantityOfResultButtonIsTouchedInSimpleCalc
 
+        // Voir resultButton et func requestReview()
         
-        //        ui_topLineLabel.numberOfLines = 1
+        
+        //-------------------------------------------------
+        // infos
+        //-------------------------------------------------
+        
+        print("viewDidLoad : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
 //        ui_topLineLabel.textAlignment = .left
 //        ui_topLineLabel.font = UIFont(name: "digital-7", size: 25)
-        
 //        ui_bottomLineLabel.numberOfLines = 1
-        
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,20 +84,6 @@ class ViewController: UIViewController {
         ui_topLineLabel.text = ui_topLineLabel.text! + String(sender.tag)
             _currentNumber = Double(ui_topLineLabel.text!)!
             print("_currentNumber = \(_currentNumber)")
-        
-        //        if _decimalNumber == true {
-        //            _decim = _decim * 10
-        //            _numdecim = Double(sender.tag)
-        //            _currentNumber = _currentNumber + (_numdecim / _decim)
-        //            updateDisplay()
-        //        }
-        //        else if _shouldResetCurrentNumber == true {
-        //            _currentNumber = Double(sender.tag)
-        //            _shouldResetCurrentNumber = false
-        //        }
-        //        else { _currentNumber = (_currentNumber * 10 ) + Double(sender.tag)
-        //
-        //        }
     }
     
     
@@ -114,8 +96,6 @@ class ViewController: UIViewController {
             } else {
             ui_topLineLabel.text = String(ui_topLineLabel.text! + ".")
             _currentNumber = Double(ui_topLineLabel.text!)!
-            // _numdecim = _currentNumber
-            //ui_currentNumberLabel.text = “(_numdecim)”
             _decimalNumber = true
             }
         }
@@ -124,10 +104,6 @@ class ViewController: UIViewController {
     @IBAction func square(_ sender: UIButton) {
         if ui_topLineLabel.text != "Entrer un nombre d'abord" || ui_topLineLabel.text != "Division par 0 impossible" || ui_topLineLabel.text != "Erreur" || ui_topLineLabel.text != "+" || ui_topLineLabel.text != "-" || ui_topLineLabel.text != "*" || ui_topLineLabel.text != "/" || ui_topLineLabel.text != "√" {
             if ui_topLineLabel.text != "" {
-                //          if _shouldResetCurrentNumber == true {
-                //             _currentNumber = _previousNumber
-                //          }
-                //          _shouldResetCurrentNumber = false
                 ui_topLineLabel.text = String(_currentNumber * _currentNumber)
                 _previousNumber = _currentNumber
                 _currentNumber = Double(ui_topLineLabel.text!)!
@@ -147,10 +123,6 @@ class ViewController: UIViewController {
             if ui_topLineLabel.text == "" {
                 ui_topLineLabel.text = "Entrer un nombre d'abord"
             } else {
-                //          if _shouldResetCurrentNumber == true {
-                //             _currentNumber = _previousNumber
-                //          }
-                //          _shouldResetCurrentNumber = false
                 ui_topLineLabel.text = String(sqrt(_currentNumber))
                 _previousNumber = _currentNumber
                 _currentNumber = Double(ui_topLineLabel.text!)!
@@ -164,9 +136,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func divisionButton(_ sender: UIButton) {
-//        if _shouldResetCurrentNumber == false {
-//            performWaitingCalculous()
-//        }
         ui_topLineLabel.text = "/"
         _operationType = "/"
         if _previousNumber != 0 {
@@ -178,55 +147,64 @@ class ViewController: UIViewController {
         resetdecim()
         print("DivisionBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
-
+    
+    
     @IBAction func multiplyButton(_ sender: UIButton) {
-//        if _shouldResetCurrentNumber == false {
-//            performWaitingCalculous()
-//        }
         ui_topLineLabel.text = "*"
         _operationType = "*"
-        _previousNumber = _previousNumber * _currentNumber
+        if _previousNumber != 0 {
+            _previousNumber = _previousNumber * _currentNumber
+        } else {
+        _previousNumber = _currentNumber
+        }
         _currentNumber = 0
         resetdecim()
         print("MultiplyBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
-
+    
+    
     @IBAction func substractButton(_ sender: UIButton) {
-//        if _shouldResetCurrentNumber == false {
-//            performWaitingCalculous()
-//        }
         ui_topLineLabel.text = "-"
         _operationType = "-"
-        _previousNumber = _previousNumber - _currentNumber
+        if _previousNumber != 0 {
+            _previousNumber = _previousNumber - _currentNumber
+        } else {
+            _previousNumber = _currentNumber
+        }
         _currentNumber = 0
         resetdecim()
         print("SubstractBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
     
+    
     @IBAction func additionButton(_ sender: UIButton) {
-//        if _shouldResetCurrentNumber == false {
-//            performWaitingCalculous()
-//        }
         ui_topLineLabel.text = "+"
         _operationType = "+"
-        _previousNumber = _previousNumber + _currentNumber
+        if _previousNumber != 0 {
+            _previousNumber = _previousNumber + _currentNumber
+        } else {
+            _previousNumber = _currentNumber
+        }
         _currentNumber = 0
         resetdecim()
         print("AdditionBUTTON : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
     }
     
     @IBAction func resultButton(_ sender: UIButton) {
+        _quantityOfResultButtonIsTouched = _quantityOfResultButtonIsTouched + 1
+        if (_quantityOfResultButtonIsTouched % _moduloRequestReview == 0) {
+            requestReview()
+        }
+        quantityOfResultButtonIsTouchedInSimpleCalc = _quantityOfResultButtonIsTouched
+        UserDefaults.standard.set(_quantityOfResultButtonIsTouched , forKey: "QUANTITYRESULTBUTTONTOUCHED")
+        print("Lauched SIMPLE CALC : quantityOfResultButtonIsTouched = \(_quantityOfResultButtonIsTouched)")
+        print("quantityOfResultButtonIsTouchedInSimpleCalc = \(quantityOfResultButtonIsTouchedInSimpleCalc)")
         performWaitingCalculous()
     }
     
     
     @IBAction func applyPercentButton(_ sender: UIButton) {
-        //        if _shouldResetCurrentNumber == true {
-        //            _currentNumber = _previousNumber}
-        
         _percentageResult = (_currentNumber / 100) // 0,2 = 20%
-        //        var totalPercentageApply: Double = 0
-        //        totalPercentageApply = _previousNumber * _percentageResult // si _previousNumber vaut 50 alors totalPercentageApply vaut 10
         switch _operationType {
         case "-":
             ui_topLineLabel.text = String(_previousNumber - _previousNumber * _percentageResult);
@@ -256,8 +234,6 @@ class ViewController: UIViewController {
             _currentNumber = 0
             return
         } else {
-        //        if _shouldResetCurrentNumber == true {
-        //            _currentNumber = _previousNumber}
         ui_topLineLabel.text = String(Double(ui_topLineLabel.text!)! * -1)
         _currentNumber = Double(ui_topLineLabel.text!)!
         print("ChangeSign : _currentNumber = \(_currentNumber) / ui_topLineLabel = \(String(describing: ui_topLineLabel.text!))")
@@ -279,7 +255,6 @@ class ViewController: UIViewController {
     
     @IBAction func ResetCurrentNumber(_ sender: UIButton) {
         ui_topLineLabel.text = ""
-        //        _previousNumber = _currentNumber
         _currentNumber = 0
         print("Reset Current Number : _currentNumber = \(_currentNumber) / _previousNumber = \(_previousNumber)")
         resetdecim()
@@ -288,8 +263,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func eraseLastDigit(_ sender: UIButton) {
-        //        _currentNumber = Double(StringNumber)!
-        //        updateDisplay()
         if ui_topLineLabel.text == "Division par 0 impossible" || ui_topLineLabel.text == "Erreur" || ui_topLineLabel.text == "Entrer un nombre d'abord" || ui_topLineLabel.text == "+" || ui_topLineLabel.text == "-" || ui_topLineLabel.text == "*" || ui_topLineLabel.text == "/" || ui_topLineLabel.text == "^" || ui_topLineLabel.text == "" {
             ui_topLineLabel.text = ""
             return
@@ -299,14 +272,19 @@ class ViewController: UIViewController {
             ui_topLineLabel.text = ""
             return
         }
-
         
         if (ui_topLineLabel.text?.count)! <= 2 && (ui_topLineLabel.text?.contains("-"))! {
             ui_topLineLabel.text = ""
             _currentNumber = 0
             return
         }
-
+        
+        if (ui_topLineLabel.text?.count)! == 1 {
+            ui_topLineLabel.text = ""
+            _currentNumber = 0
+            return
+        }
+        
         ui_topLineLabel.text?.removeLast()
         _currentNumber = Double(ui_topLineLabel.text!)!
         print("ERASE LAST DIGIT : _currentNumber = \(_currentNumber) / ui_topLineLabel = \(String(describing: ui_topLineLabel.text!))")
@@ -323,8 +301,7 @@ class ViewController: UIViewController {
 //        _decim = 1
 //        _numdecim = 0
     }
-
-//    func calculResultat(duNombre nb1:Double, avecLeNombre nb2:Double, viaOperateur operateur:String) -> Double {}
+    
     
     func performWaitingCalculous() {
             switch _operationType {
@@ -351,37 +328,49 @@ class ViewController: UIViewController {
             default : ui_topLineLabel.text = "Erreur"
                 resetdecim();
             }
-        
-//      _shouldResetCurrentNumber = true
+        _previousNumber = 0
         print("RESULTAT : _previousNumber = \(_previousNumber) ET _currentNumber = \(_currentNumber)")
         _operationType = " "
     }
 
     func updateDisplay() {
         ui_topLineLabel.text = "\(_currentNumber)"
-//        if ui_topLineLabel.text?.contains(".0") == true {
-//      }
+    }
+
+    
+    func requestReview() {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        } else {
+//            moreApps.showAlertControllerMoreApps()
+            moreAppsABERNARD()
+        }
     }
     
-    func testInternetAndWifiConnexion() {
-        // check internet connexion
-        if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alertController = UIAlertController.init(title: "Aucune Connexion Internet", message: "Veuillez vérifier votre connexion (wifi ou données mobiles).", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_ ) in print("Arreter le téléchargement car il n'y a pas de données mobile ou wifi activés")} ))
-            alertController.addAction(UIAlertAction(title: "Activer le wifi", style: .default, handler: { (_ ) in
-                print("Activation Wifi")
-            }))
-            alertController.addAction(UIAlertAction(title: "Activer les données mobiles", style: .default, handler: { (_ ) in
-                print("Activation Données Mobiles")
-            }))
-            present(alertController, animated: true, completion: nil)
-        }
-        return
+    
+    func moreAppsABERNARD () {
+        let alertController = UIAlertController(title: "Voir nos applications", message: "Nous vous proposons de regarder nos autres applications sur l'AppStore ou sur notre site internet", preferredStyle: .actionSheet)
+
+        alertController.addAction(UIAlertAction( title: "Sur le site internet",
+                                                 style: .default,
+                                                 handler: {
+                                                    (action:UIAlertAction!) -> Void in
+                                                    UIApplication.shared.open(URL(fileURLWithPath: "https://albanbernard.fr/ios-apps"), options: [:], completionHandler: nil)
+//                                                    UIApplication.shared.open(URL(fileURLWithPath: "htpps://albanbernard.fr/ios-apps"))
+                                                    }))
+
+        alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
+                                                style: .default,
+                                                handler: { (_ ) in
+                                                    UIApplication.shared.open(URL(fileURLWithPath: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784"))
+                                                    }))
+
+        alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))
+
+        presentedViewController?.present(alertController, animated: true, completion: nil)
+
     }
 
-
 }
+
 

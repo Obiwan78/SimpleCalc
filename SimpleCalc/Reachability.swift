@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-
 import SystemConfiguration
 
 public class Reachability {
@@ -45,8 +43,6 @@ public class Reachability {
         
         return ret
     }
-    
-    
     
 }
 

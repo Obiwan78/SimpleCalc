@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B52F31A62125C7C900451A17 /* formatCalcButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F31A52125C7C900451A17 /* formatCalcButton.swift */; };
+		B55E97BF212EAB90001A9A64 /* moreApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E97BE212EAB90001A9A64 /* moreApps.swift */; };
 		B56B29781F617FE00020A5C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B29771F617FE00020A5C1 /* AppDelegate.swift */; };
 		B56B297A1F617FE00020A5C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B29791F617FE00020A5C1 /* ViewController.swift */; };
 		B56B297D1F617FE00020A5C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56B297B1F617FE00020A5C1 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		B52F31A52125C7C900451A17 /* formatCalcButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = formatCalcButton.swift; sourceTree = "<group>"; };
+		B55E97BE212EAB90001A9A64 /* moreApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreApps.swift; sourceTree = "<group>"; };
 		B56B29741F617FE00020A5C1 /* SimpleCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56B29771F617FE00020A5C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B56B29791F617FE00020A5C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				B56B29791F617FE00020A5C1 /* ViewController.swift */,
 				B5FE10692129AF5A00962129 /* Reachability.swift */,
 				B5FE10672129A87700962129 /* infosViewController.swift */,
+				B55E97BE212EAB90001A9A64 /* moreApps.swift */,
 				B56B297B1F617FE00020A5C1 /* Main.storyboard */,
 				B56B297E1F617FE00020A5C1 /* Assets.xcassets */,
 				B56B29801F617FE00020A5C1 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55E97BF212EAB90001A9A64 /* moreApps.swift in Sources */,
 				B52F31A62125C7C900451A17 /* formatCalcButton.swift in Sources */,
 				B56B297A1F617FE00020A5C1 /* ViewController.swift in Sources */,
 				B5FE10682129A87700962129 /* infosViewController.swift in Sources */,
@@ -301,7 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F743L3UMQG;
 				INFOPLIST_FILE = "$(SRCROOT)/SimpleCalc/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.AlbanBernard.SimpleCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -317,7 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F743L3UMQG;
 				INFOPLIST_FILE = "$(SRCROOT)/SimpleCalc/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.AlbanBernard.SimpleCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
