@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import MessageUI
 
-class moreApps: UIViewController, MFMailComposeViewControllerDelegate {
+class ABMoreAppsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     
 //    let _titleAlertController: String? = "Voir nos applications"

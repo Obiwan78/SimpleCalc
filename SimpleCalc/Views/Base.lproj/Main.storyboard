@@ -18,10 +18,141 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Options-->
+        <scene sceneID="lsY-VM-89D">
+            <objects>
+                <viewController id="18y-TZ-1Us" customClass="ABSettingsViewController" customModule="SimpleCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O1f-hj-1HI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igs-zt-DOO">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choissisez les options des boutons :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jT8-6z-M4I">
+                                        <rect key="frame" x="16" y="16" width="382" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6di-St-bVY">
+                                        <rect key="frame" x="16" y="56" width="382" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couleur :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wm-4L-4q9">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="67E-4y-BhE">
+                                                <rect key="frame" x="79" y="0.0" width="303" height="29"/>
+                                                <segments>
+                                                    <segment title="Terre"/>
+                                                    <segment title="Ciel"/>
+                                                    <segment title="Feu"/>
+                                                    <segment title="Nuit"/>
+                                                </segments>
+                                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceColorationSegementedControl:" destination="18y-TZ-1Us" eventType="valueChanged" id="KyT-M4-HgJ"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mtn-Xm-WiM">
+                                        <rect key="frame" x="16" y="104" width="382" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forme :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZME-uO-01U">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="94e-ro-CkG">
+                                                <rect key="frame" x="79" y="0.0" width="303" height="29"/>
+                                                <segments>
+                                                    <segment title="Carrés"/>
+                                                    <segment title="Arroundis"/>
+                                                    <segment title="Ronds"/>
+                                                </segments>
+                                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceButtonShapeSegmentedControl:" destination="18y-TZ-1Us" eventType="valueChanged" id="hT0-Ks-RSf"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aLt-6j-y0F">
+                                        <rect key="frame" x="16" y="152" width="382" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Police :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5E-oI-u0w">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="28"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-JZ-7rX">
+                                                <rect key="frame" x="79" y="0.0" width="303" height="29"/>
+                                                <segments>
+                                                    <segment title="Digital-7"/>
+                                                    <segment title="Futura"/>
+                                                    <segment title="Chalkduster"/>
+                                                </segments>
+                                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceFontSegmentedControl:" destination="18y-TZ-1Us" eventType="valueChanged" id="veP-4N-Bfu"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32215464799999999" green="0.3982289349" blue="0.4841725221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jT8-6z-M4I" firstAttribute="top" secondItem="igs-zt-DOO" secondAttribute="top" constant="16" id="1em-jZ-8Fp"/>
+                                    <constraint firstItem="mtn-Xm-WiM" firstAttribute="top" secondItem="6di-St-bVY" secondAttribute="bottom" constant="20" id="4rP-8s-mxx"/>
+                                    <constraint firstItem="jT8-6z-M4I" firstAttribute="leading" secondItem="igs-zt-DOO" secondAttribute="leading" constant="16" id="C3i-IE-7ye"/>
+                                    <constraint firstAttribute="trailing" secondItem="6di-St-bVY" secondAttribute="trailing" constant="16" id="DAb-v9-9BT"/>
+                                    <constraint firstItem="aLt-6j-y0F" firstAttribute="top" secondItem="mtn-Xm-WiM" secondAttribute="bottom" constant="20" id="DGB-cu-jAj"/>
+                                    <constraint firstItem="mtn-Xm-WiM" firstAttribute="leading" secondItem="igs-zt-DOO" secondAttribute="leading" constant="16" id="J6D-RR-toR"/>
+                                    <constraint firstItem="6di-St-bVY" firstAttribute="leading" secondItem="igs-zt-DOO" secondAttribute="leading" constant="16" id="JTG-Ma-xtD"/>
+                                    <constraint firstAttribute="trailing" secondItem="aLt-6j-y0F" secondAttribute="trailing" constant="16" id="Xtt-Ly-beX"/>
+                                    <constraint firstItem="6di-St-bVY" firstAttribute="top" secondItem="jT8-6z-M4I" secondAttribute="bottom" constant="16" id="a2n-F4-Mvr"/>
+                                    <constraint firstItem="aLt-6j-y0F" firstAttribute="leading" secondItem="igs-zt-DOO" secondAttribute="leading" constant="16" id="dGq-0R-gHM"/>
+                                    <constraint firstItem="1wm-4L-4q9" firstAttribute="width" secondItem="ZME-uO-01U" secondAttribute="width" id="fdG-xe-Qoh"/>
+                                    <constraint firstItem="ZME-uO-01U" firstAttribute="width" secondItem="e5E-oI-u0w" secondAttribute="width" id="oF5-0v-Zms"/>
+                                    <constraint firstAttribute="trailing" secondItem="jT8-6z-M4I" secondAttribute="trailing" constant="16" id="sBu-Ow-PPD"/>
+                                    <constraint firstAttribute="trailing" secondItem="mtn-Xm-WiM" secondAttribute="trailing" constant="16" id="sPf-ox-roC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="igs-zt-DOO" firstAttribute="trailing" secondItem="fAn-5w-zdY" secondAttribute="trailing" id="2wV-zy-rog"/>
+                            <constraint firstItem="igs-zt-DOO" firstAttribute="top" secondItem="fAn-5w-zdY" secondAttribute="top" id="Bcu-BS-i7Q"/>
+                            <constraint firstItem="igs-zt-DOO" firstAttribute="leading" secondItem="fAn-5w-zdY" secondAttribute="leading" id="g5f-Ld-mUj"/>
+                            <constraint firstItem="igs-zt-DOO" firstAttribute="bottom" secondItem="fAn-5w-zdY" secondAttribute="bottom" id="xPq-hF-ymI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fAn-5w-zdY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Options" id="cmr-Hb-J6x"/>
+                    <connections>
+                        <outlet property="ui_buttonShapeLabel" destination="ZME-uO-01U" id="yCa-h5-wCw"/>
+                        <outlet property="ui_buttonShapeSegementedControl" destination="94e-ro-CkG" id="eHj-mN-xmZ"/>
+                        <outlet property="ui_colorsLabel" destination="1wm-4L-4q9" id="be5-Kp-HSm"/>
+                        <outlet property="ui_colorsSegementedControl" destination="67E-4y-BhE" id="uuT-hq-zOd"/>
+                        <outlet property="ui_fontLabel" destination="e5E-oI-u0w" id="6oY-Vc-yic"/>
+                        <outlet property="ui_fontSegementControl" destination="9Pc-JZ-7rX" id="JDi-r5-oPU"/>
+                        <outlet property="ui_titleChooseYourOptionsLabel" destination="jT8-6z-M4I" id="GiK-GY-sP0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JLn-hU-dCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854" y="-206"/>
+        </scene>
         <!--Simple Calc-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SimpleCalc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ABCalcViewController" customModule="SimpleCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +174,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OO-Zc-WZJ">
                                 <rect key="frame" x="16" y="172" width="382" height="548"/>
                                 <subviews>
-                                    <button verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8w-db-BaW">
+                                    <button verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8w-db-BaW" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="460" width="92.333333333333329" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -55,7 +186,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYH-1t-XRB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuS-hD-3lV">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuS-hD-3lV" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="368" width="92.333333333333329" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -67,7 +198,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9NF-TJ-aBm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIo-ZF-47J">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIo-ZF-47J" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="96.333333333333314" y="368" width="93" height="87.666666666666686"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -79,7 +210,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WrQ-e4-J3U"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcL-zD-o1g">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcL-zD-o1g" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="193.33333333333334" y="368" width="92.333333333333343" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -91,7 +222,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="abN-mp-TZW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZr-If-XYd">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZr-If-XYd" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="276" width="92.666666666666671" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -103,7 +234,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Udr-S8-D2O"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6U-Ki-ORn">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6U-Ki-ORn" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="96.666666666666686" y="276" width="93" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -115,7 +246,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfw-gk-nND"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lK9-xH-CCu">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lK9-xH-CCu" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="193.66666666666666" y="276" width="92.333333333333343" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -127,7 +258,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EoO-LJ-xYk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-yh-3wO">
+                                    <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-yh-3wO" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="96.333333333333314" y="460" width="93" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -139,7 +270,7 @@
                                             <action selector="numberDecimal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7fG-6c-4Xr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-qz-q2v">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-qz-q2v" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="193.33333333333337" y="460" width="188.66666666666663" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -151,7 +282,7 @@
                                             <action selector="resultButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JE3-AP-k1U"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-St-bH9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-St-bH9" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="289.66666666666669" y="368" width="92.333333333333314" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -163,7 +294,7 @@
                                             <action selector="additionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e8v-y8-0sz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNu-8o-665">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNu-8o-665" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="290" y="184" width="92" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -175,7 +306,7 @@
                                             <action selector="multiplyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kkX-E4-E6D"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7B-Kn-RaI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7B-Kn-RaI" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="290" y="276" width="92" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -187,7 +318,7 @@
                                             <action selector="substractButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ew6-TP-kRz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAd-a3-FSL">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAd-a3-FSL" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="184" width="92.666666666666671" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -199,7 +330,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3IE-dE-MhK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyj-Pm-2ie">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyj-Pm-2ie" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="96.666666666666657" y="184" width="92.666666666666657" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -211,7 +342,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L2X-kf-vsm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phh-qL-3U4">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phh-qL-3U4" customClass="ABDigitCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="193.33333333333334" y="184" width="92.666666666666657" height="88"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -223,7 +354,7 @@
                                             <action selector="digitButtonTouchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CmT-qU-R6n"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-Jx-dOD" customClass="formatCalcButton" customModule="SimpleCalc" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-Jx-dOD" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="92.666666666666671" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -235,7 +366,7 @@
                                             <action selector="applyPercentButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebe-qc-OfP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqk-Ti-lTU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqk-Ti-lTU" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="96.666666666666686" y="92.666666666666686" width="92.333333333333314" height="87.333333333333314"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -247,7 +378,7 @@
                                             <action selector="square:" destination="BYZ-38-t0r" eventType="touchUpInside" id="srj-nY-a2N"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPr-LS-pNB">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPr-LS-pNB" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="193" y="92.666666666666686" width="92.333333333333314" height="87.333333333333314"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -259,7 +390,7 @@
                                             <action selector="squareRoot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9m3-Bw-tL2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo3-X0-uRK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo3-X0-uRK" customClass="ABOtherCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="289" y="0.0" width="93" height="88"/>
                                         <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -271,7 +402,7 @@
                                             <action selector="changeSignButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="13B-7U-aVO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttz-6W-Hep">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttz-6W-Hep" customClass="ABOtherCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="88"/>
                                         <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -283,7 +414,7 @@
                                             <action selector="resetAllValueButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="51Z-dW-MLc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddL-Og-TH7">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddL-Og-TH7" customClass="ABOtherCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="192.66666666666666" y="0.0" width="92.333333333333343" height="88.666666666666671"/>
                                         <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -295,7 +426,7 @@
                                             <action selector="eraseLastDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JP1-DX-r5h"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iam-Ff-91c">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iam-Ff-91c" customClass="ABOperatorCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="289.33333333333331" y="92" width="92.666666666666686" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -307,7 +438,7 @@
                                             <action selector="divisionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ngO-ZN-myf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-La-xOP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-La-xOP" customClass="ABOtherCalcButton" customModule="SimpleCalc" customModuleProvider="target">
                                         <rect key="frame" x="96.666666666666686" y="0.0" width="92" height="88.666666666666671"/>
                                         <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
@@ -2048,6 +2179,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Simple Calc" id="iC5-jN-ePc">
+                        <barButtonItem key="leftBarButtonItem" title="Options" id="pTD-Ry-BGc">
+                            <connections>
+                                <segue destination="18y-TZ-1Us" kind="show" identifier="Segue-Settings" id="PKu-0I-8z4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Infos" id="1YF-Eq-lwr">
                             <color key="tintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -2056,6 +2192,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ui_backButton" destination="ddL-Og-TH7" id="QhM-7R-i3P"/>
+                        <outlet property="ui_commaButton" destination="0q3-yh-3wO" id="m72-qX-GiX"/>
                         <outlet property="ui_topLineLabel" destination="Xen-6k-2gp" id="k7y-QD-amj"/>
                     </connections>
                 </viewController>
@@ -2066,7 +2204,7 @@
         <!--Informations-->
         <scene sceneID="VTK-TB-D5T">
             <objects>
-                <viewController id="nYt-No-xxm" customClass="infosViewController" customModule="SimpleCalc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nYt-No-xxm" customClass="ABInfosViewController" customModule="SimpleCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ilW-2j-RuK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2126,7 +2264,7 @@ Pour ce faire :</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhD-gs-V54" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1738" y="124"/>
+            <point key="canvasLocation" x="1854" y="465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1zD-xV-Uab">

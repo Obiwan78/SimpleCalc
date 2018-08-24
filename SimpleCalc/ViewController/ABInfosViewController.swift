@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class infosViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,9 +16,10 @@ import UIKit
 import Foundation
 import StoreKit
 
-class ViewController: UIViewController {
+class ABCalcViewController: UIViewController {
     
-    static let KEY_QUANTITY_RESULT_BUTTON_TOUCHED : String = "QUANTITYRESULTBUTTONTOUCHED"
+    static let KEY_QUANTITY_RESULT_BUTTON_TOUCHED :
+        String = "KEY_QUANTITY_RESULT_BUTTON_TOUCHED"
     var quantityOfResultButtonIsTouchedInSimpleCalc = UserDefaults.standard.integer(forKey: KEY_QUANTITY_RESULT_BUTTON_TOUCHED)
     var _quantityOfResultButtonIsTouched: Int = 0
     let _moduloRequestReview: Int = 50 // Default = 50 x la touche "=". valeur à modifier pour test (entre 2 et 5)
@@ -30,6 +31,13 @@ class ViewController: UIViewController {
     var _percentageResult: Double = 0
 
     @IBOutlet weak var ui_topLineLabel: UILabel! = nil
+
+    // Les Boutons autres que les Digits
+    @IBOutlet weak var ui_commaButton: ABDigitCalcButton!
+    
+    @IBOutlet weak var ui_backButton: ABOtherCalcButton!
+    
+    
     
     //-------------------------------------------------
     // View Life Cycle
@@ -37,8 +45,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        moreApps.showAlertControllerMoreApps()
-//        moreAppsABERNARD()
+        // Init Label de tous les boutons :
+        // Voir func initTextForButton
+        initTextForButton()
         
 // ---- USER DEFAULT pour SKStoreReviewController
         _quantityOfResultButtonIsTouched = quantityOfResultButtonIsTouchedInSimpleCalc
@@ -68,7 +77,12 @@ class ViewController: UIViewController {
         if segue.identifier == "Segue-Infos" {
             print("on passe à l'écran info, envoi email")
         }
+        if segue.identifier == "Segue-Options" {
+            print("on passe à l'écran Options Settings")
+        }
     }
+    
+
     
     //-------------------------------------------------
     // Méthodes
@@ -198,7 +212,7 @@ class ViewController: UIViewController {
             requestReview()
         }
         quantityOfResultButtonIsTouchedInSimpleCalc = _quantityOfResultButtonIsTouched
-        UserDefaults.standard.set(_quantityOfResultButtonIsTouched , forKey: ViewController.KEY_QUANTITY_RESULT_BUTTON_TOUCHED)
+        UserDefaults.standard.set(_quantityOfResultButtonIsTouched , forKey: ABCalcViewController.KEY_QUANTITY_RESULT_BUTTON_TOUCHED)
 //        UserDefaults.synchronize(<#T##UserDefaults#>)
         print("Lauched SIMPLE CALC : quantityOfResultButtonIsTouched = \(_quantityOfResultButtonIsTouched)")
         print("quantityOfResultButtonIsTouchedInSimpleCalc = \(quantityOfResultButtonIsTouchedInSimpleCalc)")
@@ -374,6 +388,13 @@ class ViewController: UIViewController {
 
     }
 
+    private func initTextForButton() {
+        ui_backButton.titleLabel?.text = "<"
+        
+    }
+    
+    
+    
 }
 
 
