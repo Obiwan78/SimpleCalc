@@ -9,35 +9,33 @@
 import UIKit
 
 class ABDigitCalcButton: ABCalcButton {
-
+    
+    //-------------------------------------------------
+    // Couleur des boutons DIGIT
+    //-------------------------------------------------
     override func setupUI() {
         super .setupUI()
         switch ABSettingsViewController._colorButton {
         case 0: // Terre
             self.backgroundColor = UIColor.lightGray
-            self.titleLabel?.textColor = UIColor.black
-//            UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: "KEY_COLORATION_BUTTON_CALC")
+            self.setTitleColor(UIColor.black, for: UIControlState.normal)
         case 1: // Ciel
             self.backgroundColor = UIColor.cyan
-            self.titleLabel?.textColor = UIColor.black
-
-//            UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: "KEY_COLORATION_BUTTON_CALC")
+            self.setTitleColor(UIColor.black, for: UIControlState.normal)
         case 2: // Feu
             self.backgroundColor = UIColor.red
-            self.titleLabel?.textColor = UIColor.white
-//            UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: "KEY_COLORATION_BUTTON_CALC")
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
         case 3: // Nuit
             self.backgroundColor = UIColor.black
-            self.titleLabel?.textColor = UIColor.lightGray // white / lightText / lightGray
-//            UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: "KEY_COLORATION_BUTTON_CALC")
+            self.setTitleColor(UIColor.red, for: UIControlState.normal)
         default:
             self.backgroundColor = UIColor.lightGray
-            self.titleLabel?.textColor = UIColor.black
-//            UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: "KEY_COLORATION_BUTTON_CALC")
+            self.setTitleColor(UIColor.red, for: UIControlState.normal)
         }
         
-
-        
+        //-------------------------------------------------
+        // Forme des boutons DIGIT
+        //-------------------------------------------------
         switch ABSettingsViewController._shapeButton {
         case 0 :
             self.layer.cornerRadius = 0
@@ -46,14 +44,16 @@ class ABDigitCalcButton: ABCalcButton {
             self.layer.cornerRadius = 10
 //            UserDefaults.standard.set(ABSettingsViewController._shapeButton, forKey: "KEY_SHAPE_BUTTON_CALC")
         case 2 :
-            self.layer.cornerRadius =  self.frame.width / 2
+            self.layer.cornerRadius =  self.frame.height / 2
 //            UserDefaults.standard.set(ABSettingsViewController._shapeButton, forKey: "KEY_SHAPE_BUTTON_CALC")
         default:
             self.layer.cornerRadius = 0
 //            UserDefaults.standard.set(ABSettingsViewController._shapeButton, forKey: "KEY_SHAPE_BUTTON_CALC")
         }
         
-        
+        //-------------------------------------------------
+        // Fonte des boutons DIGIT
+        //-------------------------------------------------
         switch ABSettingsViewController._fontButton {
         case 0: // Digital-7
             self.titleLabel?.font = UIFont(name: "Digital-7", size: 40)

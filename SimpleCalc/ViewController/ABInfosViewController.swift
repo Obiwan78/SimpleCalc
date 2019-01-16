@@ -15,7 +15,6 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
         super.viewDidLoad()
         testInternetAndWifiConnexion()
         // Do any additional setup after loading the view.
-        
     }
     
     
@@ -31,6 +30,21 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var sendEmailButton: UIButton!
     
     @IBAction func SendEmailButton(_ sender: Any) {
+        /*
+        ADD : import Message UI
+        ADD : class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelegate {
+        ADD override func :
+        override func didReceiveMemoryWarning() {
+           super.didReceiveMemoryWarning()
+           // Dispose of any resources that can be recreated.
+           if !MFMailComposeViewController.canSendMail(){
+               print("Mail Services are not available")
+               return
+           }
+        }
+        ADD func testInternetAndWifiConnexion()  CF ABE - TestInternetAndWifiConnexion
+        */
+        
         let composeVC = MFMailComposeViewController()
         composeVC.mailComposeDelegate = self
         
@@ -49,6 +63,14 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func testInternetAndWifiConnexion() {
+        /*
+        ADD : ABE - Reachability in a new file
+        Add : override func viewDidLoad() {
+        super.viewDidLoad()
+        testInternetAndWifiConnexion()
+        // Do any additional setup after loading the view.
+        }
+        */
         // check internet connexion
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
@@ -84,7 +106,7 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
         alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
                                                 style: .default,
                                                 handler: { (_ ) in
-                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: [:], completionHandler: nil)
+                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784?mt=8")! as URL, options: [:], completionHandler: nil) //  https://itunes.apple.com/fr/developer/alban-bernard/id1425470783 Ne fonctionne pas.
         }))
         
         alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))

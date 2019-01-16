@@ -18,8 +18,7 @@ import StoreKit
 
 class ABCalcViewController: UIViewController {
     
-    static let KEY_QUANTITY_RESULT_BUTTON_TOUCHED :
-        String = "KEY_QUANTITY_RESULT_BUTTON_TOUCHED"
+    static let KEY_QUANTITY_RESULT_BUTTON_TOUCHED :String = "KEY_QUANTITY_RESULT_BUTTON_TOUCHED"
     var quantityOfResultButtonIsTouchedInSimpleCalc = UserDefaults.standard.integer(forKey: KEY_QUANTITY_RESULT_BUTTON_TOUCHED)
     var _quantityOfResultButtonIsTouched: Int = 0
     let _moduloRequestReview: Int = 50 // Default = 50 x la touche "=". valeur à modifier pour test (entre 2 et 5)
@@ -75,14 +74,13 @@ class ABCalcViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Segue-Infos" {
-            print("on passe à l'écran info, envoi email")
+            print("on passe à l'écran info, envoi email et more Apps")
         }
         if segue.identifier == "Segue-Options" {
             print("on passe à l'écran Options Settings")
         }
     }
     
-
     
     //-------------------------------------------------
     // Méthodes
@@ -213,7 +211,6 @@ class ABCalcViewController: UIViewController {
         }
         quantityOfResultButtonIsTouchedInSimpleCalc = _quantityOfResultButtonIsTouched
         UserDefaults.standard.set(_quantityOfResultButtonIsTouched , forKey: ABCalcViewController.KEY_QUANTITY_RESULT_BUTTON_TOUCHED)
-//        UserDefaults.synchronize(<#T##UserDefaults#>)
         print("Lauched SIMPLE CALC : quantityOfResultButtonIsTouched = \(_quantityOfResultButtonIsTouched)")
         print("quantityOfResultButtonIsTouchedInSimpleCalc = \(quantityOfResultButtonIsTouchedInSimpleCalc)")
         performWaitingCalculous()
@@ -356,12 +353,11 @@ class ABCalcViewController: UIViewController {
 
     
     func requestReview() {
+        // import StoreKit
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         } else {
-//            moreApps.showAlertControllerMoreApps()
             moreAppsABERNARD(presentedViewController: self)
-//            moreApps.showAlertControllerMoreApps()
         }
     }
     

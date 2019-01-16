@@ -16,21 +16,20 @@ class ABOperatorCalcButton: ABCalcButton {
         switch ABSettingsViewController._colorButton {
         case 0: // Terre
             self.backgroundColor = UIColor.orange
-            self.titleLabel?.textColor = UIColor.white
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
         case 1: // Ciel
             self.backgroundColor = UIColor.blue
-            self.titleLabel?.textColor = UIColor.white
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
         case 2: // Feu
             self.backgroundColor = UIColor.orange
-            self.titleLabel?.textColor = UIColor.white
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
         case 3: // Nuit
-            self.backgroundColor = UIColor.darkGray
-            self.titleLabel?.textColor = UIColor.white
+            self.backgroundColor = UIColor.black
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
         default:
             self.backgroundColor = UIColor.orange
-            self.titleLabel?.textColor = UIColor.white
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
         }
-//        UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: "KEY_COLORATION_BUTTON_CALC")
         
         
         switch ABSettingsViewController._shapeButton {
@@ -39,7 +38,7 @@ class ABOperatorCalcButton: ABCalcButton {
         case 1 :
             self.layer.cornerRadius = 10
         case 2 :
-            self.layer.cornerRadius =  self.frame.width / 2
+            self.layer.cornerRadius =  self.frame.height / 2
             
         default:
             self.layer.cornerRadius = 0

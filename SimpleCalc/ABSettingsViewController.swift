@@ -22,18 +22,20 @@ class ABSettingsViewController: UIViewController {
     static var _fontButton = UserDefaults.standard.integer(forKey: KEY_FONT_BUTTON_CALC)
     
     @IBOutlet weak var ui_titleChooseYourOptionsLabel: UILabel!
-    @IBOutlet weak var ui_colorsLabel: UILabel! //  Thème des boutons
+//     String("Choissisez vos options de visualisation")
+    @IBOutlet weak var ui_colorsLabel: UILabel!
+//        String("Thème")
     @IBOutlet weak var ui_colorsSegementedControl: UISegmentedControl!
-    @IBOutlet weak var ui_buttonShapeLabel: UILabel! //  Forme des boutons
+    
+    @IBOutlet weak var ui_buttonShapeLabel: UILabel!
+//        = String("Boutons")
     @IBOutlet weak var ui_buttonShapeSegementedControl: UISegmentedControl!
-    @IBOutlet weak var ui_fontLabel: UILabel! //  Font des boutons
+    
+    @IBOutlet weak var ui_fontLabel: UILabel!
+//        = String("Police")
     @IBOutlet weak var ui_fontSegementControl: UISegmentedControl!
     
     override func viewDidLoad() {
-        ui_colorsSegementedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: ABSettingsViewController.KEY_COLORATION_BUTTON_CALC)
-        ui_buttonShapeSegementedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: ABSettingsViewController.KEY_SHAPE_BUTTON_CALC)
-        ui_fontSegementControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: ABSettingsViewController.KEY_FONT_BUTTON_CALC)
-
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -50,9 +52,6 @@ class ABSettingsViewController: UIViewController {
         ABSettingsViewController._colorButton = ui_colorsSegementedControl.selectedSegmentIndex
         UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: ABSettingsViewController.KEY_COLORATION_BUTTON_CALC)
         NotificationCenter.default.post(name: ABSettingsViewController.SettingsNotificationKey, object: nil)
-        print("Bouton Couleurs = \(ABSettingsViewController._colorButton)")
-        print("\(ABSettingsViewController.SettingsNotificationKey)")
-        
     }
     
     
@@ -60,8 +59,7 @@ class ABSettingsViewController: UIViewController {
         ABSettingsViewController._shapeButton = ui_buttonShapeSegementedControl.selectedSegmentIndex
         UserDefaults.standard.set(ABSettingsViewController._shapeButton, forKey: ABSettingsViewController.KEY_SHAPE_BUTTON_CALC)
         NotificationCenter.default.post(name: ABSettingsViewController.SettingsNotificationKey, object: nil)
-        print("Bouton Shpae = \(ABSettingsViewController._shapeButton)")
-        print("\(ABSettingsViewController.SettingsNotificationKey)")
+
     }
     
     
@@ -69,8 +67,7 @@ class ABSettingsViewController: UIViewController {
         ABSettingsViewController._fontButton = ui_fontSegementControl.selectedSegmentIndex
         UserDefaults.standard.set(ABSettingsViewController._fontButton, forKey: ABSettingsViewController.KEY_FONT_BUTTON_CALC)
         NotificationCenter.default.post(name: ABSettingsViewController.SettingsNotificationKey, object: nil)
-        print("Font Button = \(ABSettingsViewController._fontButton)")
-        print("\(ABSettingsViewController.SettingsNotificationKey)")
+
     }
     
 

@@ -9,7 +9,7 @@
 "4rx-La-xOP.normalTitle" = "C";
 
 /* Class = "UILabel"; text = "Nous sommes très heureux de savoir que vous avez télécharger notre application SIMPLE CALC et nous vous en remercions chaleureusement.\n\nNous souhaitons également recueillir vos commentaires afin d'améliorer cette calculatrice.\n\nPour ce faire :"; ObjectID = "9sX-zH-A4E"; */
-"9sX-zH-A4E.text" = "Nous sommes très heureux de savoir que vous avez télécharger notre application SIMPLE CALC et nous vous en remercions chaleureusement.\n\nNous souhaitons également recueillir vos commentaires afin d'améliorer cette calculatrice.\n\nPour ce faire :";
+"9sX-zH-A4E.text" = "Nous sommes très heureux de savoir que vous avez téléchargé notre application SIMPLE CALC et nous vous en remerçions chaleureusement.\n\nNous souhaitons également recueillir vos commentaires afin d'améliorer cette calculatrice.\n\nPour ce faire :";
 
 /* Class = "UIBarButtonItem"; title = "Nos Apps"; ObjectID = "AHA-Cu-1rK"; */
 "AHA-Cu-1rK.title" = "Nos Apps";
@@ -45,7 +45,7 @@
 "c8w-db-BaW.normalTitle" = "0";
 
 /* Class = "UIButton"; normalTitle = ">"; ObjectID = "ddL-Og-TH7"; */
-"ddL-Og-TH7.normalTitle" = ">";
+"ddL-Og-TH7.normalTitle" = "<";
 
 /* Class = "UIButton"; normalTitle = "7"; ObjectID = "eAd-a3-FSL"; */
 "eAd-a3-FSL.normalTitle" = "7";
