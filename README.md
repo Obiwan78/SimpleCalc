@@ -1,19 +1,29 @@
 # SimpleCalc
 
-![SimpleCalc logo](https://albanbernard.fr/ABApps/SimpleCalc160.jpg)
+![Simple Calc logo](https://albanbernard.fr/ABApps/SimpleCalc160.jpg)
 
-Une calculatrice simple et efficace avec thèmes intégrés.
+Une calculatrice simple et efficace avec thèmes intégrés, mode portrait ou paysage différents en fonction du terminal utilisé : iPhone ou iPad.
 
-## Description
+## Fonctionnalités
 
-Une calculatrice avec mode portrait ou paysage différents en fonction du terminal utilisé : iPhone ou iPad.
+- Opérateurs simples : 
+	- addition, 
+	- soustraction, 
+	- multiplication 
+	- division,
+	- pourcentage,
 
-En plus des opérateurs simples comme l'addition, la soustraction, la multiplication et la division, j'ai aussi implémenté des calculs de pourcentage, la gestion d'effacement (le dernier chiffre entré avec la touche "C", tous les calculs "AC" mais aussi l'effacement des digit affichés un par un avec la touche " > ".
+- Gestion d'effacement :
+	-  La touche " C " efface le dernier chiffre entré,
+	-  La touche " AC " efface tous les calculs 
+	-  La touche " > " efface le dernier digit affichés
 
-Vous pourrez aussi calculer rapidement le prix de votre article avec une remise commerciale exprimée en pourcentage: 36 - 15 % = 30.6 €
+- Vous pourrez aussi calculer rapidement le prix de votre article avec une remise commerciale exprimée en pourcentage: 36 - 15 % = 30.6 €
 
-N'hésitez pas à me transmettre vos remarques pour ajouter de nouvelles fonctionnalités.
-
+- Gestion des thèmes vous permettant de gérer les paratmètres :
+	- Couleurs
+	- Formes
+	- Police
 
 ## Version
 
@@ -24,6 +34,14 @@ N'hésitez pas à me transmettre vos remarques pour ajouter de nouvelles fonctio
 
 Français
 
+## Frameworks used
+
+- Reachability
+
+
+- StoreKit
+- MessageUI
+
 
 ## Contact
 
@@ -31,6 +49,20 @@ For more informations you can send me an email at  <devios@albanbernard.fr>
 
 ## Liens
 
-On my website : 
+On my website : [http://albanbernard.fr/2018/08/simple-calc-pour-ios/]()
 
-On AppStore : 
+On AppStore : [https://itunes.apple.com/us/app/simple-calc/id1433983573?l=fr&ls=1&mt=8]()
+
+N'hésitez pas à me transmettre vos remarques pour ajouter de nouvelles fonctionnalités.
+
+
+## Captures
+![](https://albanbernard.fr/ABApps/SimpleCalc/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202018-09-01%20at%2010.48.58.png)
+
+![](https://albanbernard.fr/ABApps/SimpleCalc/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202018-09-01%20at%2010.49.36.png)
+
+![](https://albanbernard.fr/ABApps/SimpleCalc/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202018-09-01%20at%2010.50.05.png)
+
+![](https://albanbernard.fr/ABApps/SimpleCalc/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202018-09-01%20at%2010.51.36.png)
+
+![](https://albanbernard.fr/ABApps/SimpleCalc/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202018-09-01%20at%2010.53.18.png)
