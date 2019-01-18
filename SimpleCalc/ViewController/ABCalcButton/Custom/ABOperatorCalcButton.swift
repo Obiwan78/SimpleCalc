@@ -16,19 +16,19 @@ class ABOperatorCalcButton: ABCalcButton {
         switch ABSettingsViewController._colorButton {
         case 0: // Terre
             self.backgroundColor = UIColor.orange
-            self.setTitleColor(UIColor.white, for: UIControlState.normal)
+            self.setTitleColor(UIColor.white, for: UIControl.State.normal)
         case 1: // Ciel
             self.backgroundColor = UIColor.blue
-            self.setTitleColor(UIColor.white, for: UIControlState.normal)
+            self.setTitleColor(UIColor.white, for: UIControl.State.normal)
         case 2: // Feu
             self.backgroundColor = UIColor.orange
-            self.setTitleColor(UIColor.white, for: UIControlState.normal)
+            self.setTitleColor(UIColor.white, for: UIControl.State.normal)
         case 3: // Nuit
             self.backgroundColor = UIColor.black
-            self.setTitleColor(UIColor.white, for: UIControlState.normal)
+            self.setTitleColor(UIColor.white, for: UIControl.State.normal)
         default:
             self.backgroundColor = UIColor.orange
-            self.setTitleColor(UIColor.white, for: UIControlState.normal)
+            self.setTitleColor(UIColor.white, for: UIControl.State.normal)
         }
         
         
@@ -43,9 +43,7 @@ class ABOperatorCalcButton: ABCalcButton {
         default:
             self.layer.cornerRadius = 0
         }
-//        UserDefaults.standard.set(ABSettingsViewController._shapeButton, forKey: "KEY_SHAPE_BUTTON_CALC")
-        
-        
+    
         switch ABSettingsViewController._fontButton {
         case 0: // Digital-7
             self.titleLabel?.font = UIFont(name: "Digital-7", size: 40)
@@ -56,15 +54,5 @@ class ABOperatorCalcButton: ABCalcButton {
         default:
             self.titleLabel?.font = UIFont(name: "Digital-7", size: 40)
         }
-//        UserDefaults.standard.set(ABSettingsViewController._fontButton, forKey: "KEY_FONT_BUTTON_CALC")
-        
-
     }
-        
-        
-//        self.backgroundColor = UIColor.brown
-//        self.layer.cornerRadius = self.frame.width / 2
-//        UserDefaults.standard.set(ABSettingsViewController._colorButton, forKey: "KEY_COLORATION_BUTTON_CALC")
-
-
 }

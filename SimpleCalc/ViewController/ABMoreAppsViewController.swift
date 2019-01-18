@@ -12,10 +12,6 @@ import MessageUI
 
 class ABMoreAppsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-    
-//    let _titleAlertController: String? = "Voir nos applications"
-//    let _messageAlertController: String? = "Nous vous proposons de regarder nos autres applications sur l'AppStore ou sur notre site internet"
-//    let _preferedStyleAlertController: UIAlertController.Type = .actionSheet
     let alertController = UIAlertController(title: "Voir nos applications", message: "Nous vous proposons de regarder nos autres applications sur l'AppStore ou sur notre site internet", preferredStyle: .alert)
 
     override func viewDidLoad() {
@@ -39,13 +35,13 @@ class ABMoreAppsViewController: UIViewController, MFMailComposeViewControllerDel
                                                 style: .default,
                                                 handler: {
                                                 (action:UIAlertAction!) -> Void in
-                                                UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: [:], completionHandler: nil)
+                                                UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }))
     
     alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
                                             style: .default,
                                             handler: { (_ ) in
-                                                UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: [:], completionHandler: nil)
+                                                UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }))
     
     alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))
@@ -57,3 +53,8 @@ class ABMoreAppsViewController: UIViewController, MFMailComposeViewControllerDel
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

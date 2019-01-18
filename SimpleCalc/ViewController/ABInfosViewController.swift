@@ -30,21 +30,6 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var sendEmailButton: UIButton!
     
     @IBAction func SendEmailButton(_ sender: Any) {
-        /*
-        ADD : import Message UI
-        ADD : class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelegate {
-        ADD override func :
-        override func didReceiveMemoryWarning() {
-           super.didReceiveMemoryWarning()
-           // Dispose of any resources that can be recreated.
-           if !MFMailComposeViewController.canSendMail(){
-               print("Mail Services are not available")
-               return
-           }
-        }
-        ADD func testInternetAndWifiConnexion()  CF ABE - TestInternetAndWifiConnexion
-        */
-        
         let composeVC = MFMailComposeViewController()
         composeVC.mailComposeDelegate = self
         
@@ -63,14 +48,6 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func testInternetAndWifiConnexion() {
-        /*
-        ADD : ABE - Reachability in a new file
-        Add : override func viewDidLoad() {
-        super.viewDidLoad()
-        testInternetAndWifiConnexion()
-        // Do any additional setup after loading the view.
-        }
-        */
         // check internet connexion
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
@@ -78,12 +55,6 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
             print("Internet connection FAILED")
             let alertController = UIAlertController.init(title: "Aucune Connexion Internet", message: "Veuillez vérifier votre connexion.\nActivez le Wifi ou les données mobiles.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_ ) in }))
-//            alertController.addAction(UIAlertAction(title: "Activer le wifi", style: .cancel, handler: { (_ ) in
-//                print("Activation Wifi")
-//            }))
-//            alertController.addAction(UIAlertAction(title: "Activer les données mobiles", style: .cancel, handler: { (_ ) in
-//                print("Activation Données Mobiles")
-//            }))
             present(alertController, animated: true, completion: nil) // completion : lancer du code une fois qu'il est afficher.
         }
         return
@@ -100,29 +71,24 @@ class ABInfosViewController: UIViewController, MFMailComposeViewControllerDelega
                                                  style: .default,
                                                  handler: {
                                                     (action:UIAlertAction!) -> Void in
-                                                    UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: [:], completionHandler: nil)
+                                                    UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }))
         
         alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
                                                 style: .default,
                                                 handler: { (_ ) in
-                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784?mt=8")! as URL, options: [:], completionHandler: nil) //  https://itunes.apple.com/fr/developer/alban-bernard/id1425470783 Ne fonctionne pas.
+                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784?mt=8")! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil) //  https://itunes.apple.com/fr/developer/alban-bernard/id1425470783 Ne fonctionne pas.
         }))
         
         alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))
-        
-//        presentedViewController?.present(alertController, animated: true, completion: nil)
         present(alertController, animated: true, completion: nil)
         
     }
 
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

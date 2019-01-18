@@ -35,7 +35,6 @@ class ABCalcButton: UIButton {
     
     @objc func setupUI() {
         self.layer.borderWidth = 0
-//        self.layer.cornerRadius = 20 //( button.frame.width / 2)
     }
 
 }

@@ -54,22 +54,7 @@ class ABCalcViewController: UIViewController {
 // ---- Voir resultButton et func requestReview()
 
         print("viewDidLoad : _previousNumber = \(_previousNumber), _currentNumber = \(_currentNumber)")
-//        ui_topLineLabel.textAlignment = .left
-//        ui_topLineLabel.font = UIFont(name: "digital-7", size: 25)
-//        ui_bottomLineLabel.numberOfLines = 1
 
-//        override func viewDidAppear(_ animated: Bool) {
-//            updateDisplay()
-//    }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-//        moreAppsABERNARD(presentedViewController: self)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -312,8 +297,6 @@ class ABCalcViewController: UIViewController {
 
     func resetdecim () {
         _decimalNumber = false
-//        _decim = 1
-//        _numdecim = 0
     }
     
     
@@ -369,13 +352,13 @@ class ABCalcViewController: UIViewController {
                                                  style: .default,
                                                  handler: {
                                                     (action:UIAlertAction!) -> Void in
-                                                    UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: [:], completionHandler: nil)
+                                                    UIApplication.shared.open(URL(string: "https://albanbernard.fr/ios-apps")! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                                                     }))
 
         alertController.addAction(UIAlertAction(title: "Sur l'AppStore",
                                                 style: .default,
                                                 handler: { (_ ) in
-                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: [:], completionHandler: nil)
+                                                    UIApplication.shared.open(URL(string: "https://itunes.apple.com/fr/app/le-nombre-secret/id1425470784")! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                                                     }))
 
         alertController.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))
@@ -394,3 +377,8 @@ class ABCalcViewController: UIViewController {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}
